@@ -1,0 +1,18 @@
+.sidebar {
+    background-color: white;
+    display: flex;
+    position: fixed;
+    left: 0px;
+    top: 50px;
+    width: 230px;
+    margin: 10px;
+    padding: 10px;
+    box-shadow: 30px 10px 10px #F0F0F0; 
+    z-index: 1200;
+}
+
+.blue-box{
+    background-color: #0062FF0D;
+    margin: 5px;
+    width: 180px;  
+}
