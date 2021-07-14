@@ -11,15 +11,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
   display: flex;
   justify-content: center;
-  background-color: #000;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
-}
-
-li {
-  list-style: none;
 }
 
 .App {
@@ -29,17 +24,11 @@ li {
 }
 
 .btn-40 {
-  display: flex !important;
-  align-items: center;
-  justify-content: center;
   width: 134px;
   height: 40px;
 }
 
 .btn-30 {
-  display: flex !important;
-  align-items: center;
-  justify-content: center;
   width: 90px;
   height: 30px;
 }

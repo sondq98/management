@@ -27,10 +27,7 @@
 }
 
 .navItem {
-    display: flex;
-    align-items: center;
     cursor: pointer;
-    margin: 0 20px;
 }
 
 .navItem:hover {
@@ -39,33 +36,7 @@
 
 .nav p {
     font-size: 13px;
-    margin: 0;
+    margin: 0 20px;
     font-weight: bold;
 }
-
-.popover-body {
-    padding: 0;
-    font-weight: bold;
-    box-shadow: 15px 15px 15px rgba(68,68,79,.16);
-    /* border: 1px solid #707070; */
-}
-
-.popover-body .blue-box {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 15px 0 25px;
-}
-
-.navbar-brand {
-    width: 100%;
-    margin: 0;
-    padding: 5px;
-    cursor: pointer;
-}
-
-.headerUserImg {
-    width: 24px;
-}
-
 

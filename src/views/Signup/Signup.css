@@ -12,6 +12,10 @@
     width: 360px;
 }
 
+.signupForm-Main>* {
+    margin-bottom: 8px;
+}
+
 .signupForm-Header {
     text-align: center;
     padding-bottom: 25px;
@@ -20,6 +24,9 @@
 
 .signupForm-InputGroup {
     display: flex;
+}
+.signupForm-InputGroup>* {
+    margin-bottom: 8px;
 }
 
 .signupForm-Group {
@@ -37,6 +44,10 @@
     display: flex;
     justify-content: space-between;
     padding-top: 10px;
+}
+
+.signupFormFooter {
+    margin-top: 20px;
 }
 
 .space {

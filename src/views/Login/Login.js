@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-
-import { Container, Form, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
-
+import { Link } from '@material-ui/core';
+import Stack from '@material-ui/core/Stack';
 
 import AuthenHeader from '../../components/AuthenHeader/AuthenHeader'
-import InputCpn from '../../components/InputCpn/InputCpn'
-import 'bootstrap/dist/css/bootstrap.min.css';
+import Btn40 from '../../components/Buttons/Btn40'
+import BtnCustom from '../../components/Buttons/BtnCustom'
+import AuthenFormGroup from '../../components/AuthenFormGroup/AuthenFormGroup'
+
 import './Login.css'
 
 class Login extends Component {
@@ -15,43 +15,28 @@ class Login extends Component {
 
             <div className='loginPage'>
                 <AuthenHeader />
-                <Container className="loginFormWrapper">
-
-                    <Form className="loginForm">
+                <div className="loginFormWrapper">
+                    <form action="" className="loginForm">
                         <h1 className="loginForm-Header">Login</h1>
-                        <Form.Group className="loginForm-Group" controlId="formBasicEmail">
-                            <label htmlFor="email" className="loginForm-Label">Email</label>
-                            <InputCpn type="text"
-                                id="email"
-                                name="email"
-                                value=""
-                                placeholder="Please enter Email"></InputCpn>
-
-                        </Form.Group>
-
-                        <Form.Group className="loginForm-Group" controlId="formBasicPassword">
-                            <label htmlFor="password" className="loginForm-Label">Password</label>
-                            <InputCpn type="text"
-                                id="password"
-                                name="password"
-                                value=""
-                                placeholder="Please enter Password"></InputCpn>
-
-                        </Form.Group>
-
-                        <div className="loginForm-ButtonGroup">
-                            <Button variant="success" type="button" className="btn-40">
-                                Login
-                            </Button>
-                            <Link to="/signup">
-                                <Button variant="primary" type="button" className="btn-40">
-                                    Signup
-                                </Button>
-                            </Link>
+                        <div className="loginForm-Main">
+                            <AuthenFormGroup title="Email"></AuthenFormGroup>
+                            <AuthenFormGroup title="Password"></AuthenFormGroup>
                         </div>
-
-                    </Form>
-                </Container>
+                        <div className="loginFormFooter">
+                            <Stack direction="row"
+                                justifyContent="space-between"
+                                alignItems="center"
+                                spacing={0}
+                            >
+                                <BtnCustom color="green">Login</BtnCustom>
+                                <Link href="/signup" underline="none">
+                                    <BtnCustom color="sky">Sign up</BtnCustom>
+                                </Link>
+                                
+                            </Stack>
+                        </div>
+                    </form>
+                </div>
             </div>
 
         )
