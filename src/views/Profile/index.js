@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
-import './Home.css'
+import "./style.css"
 
 import MainHeader from '../../components/MainHeader'
 
-class Home extends Component {
+class Profile extends Component {
     render() {
         return (
-                <div className="home">
+                <div className="Profile">
                     <MainHeader></MainHeader>
-                    <div className="mainHome">
+                    <div className="mainProfile">
+                        <div className="box"></div>
                     </div>
                 </div>
         )
     }
 }
 
-export default Home;
+export default Profile;

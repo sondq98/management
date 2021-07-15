@@ -3,15 +3,13 @@ import { Route, Switch } from "react-router-dom";
 import Login from "./views/Login/Login";
 import Signup from "./views/Signup/Signup";
 import Home from "./views/Home/Home";
+import Profile from "./views/Profile";
 
 
 function App() {
   return (
     <div className="App">
       <Switch>
-        {/* <Route path="/">
-          <Login/>
-        </Route> */}
         <Route path="/login">
           <Login/>
         </Route>
@@ -20,6 +18,9 @@ function App() {
         </Route>
         <Route path="/home">
           <Home/>
+        </Route>
+        <Route path="/profile">
+          <Profile/>
         </Route>
       </Switch>
     </div>

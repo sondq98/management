@@ -1,46 +1,49 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { useHistory } from "react-router-dom";
 import { Link } from '@material-ui/core';
 import Stack from '@material-ui/core/Stack';
 
 import AuthenHeader from '../../components/AuthenHeader/AuthenHeader'
-import Btn40 from '../../components/Buttons/Btn40'
 import BtnCustom from '../../components/Buttons/BtnCustom'
 import AuthenFormGroup from '../../components/AuthenFormGroup/AuthenFormGroup'
 
 import './Login.css'
 
-class Login extends Component {
-    render() {
-        return (
+function Login() {
+    let history = useHistory();
 
-            <div className='loginPage'>
-                <AuthenHeader />
-                <div className="loginFormWrapper">
-                    <form action="" className="loginForm">
-                        <h1 className="loginForm-Header">Login</h1>
-                        <div className="loginForm-Main">
-                            <AuthenFormGroup title="Email"></AuthenFormGroup>
-                            <AuthenFormGroup title="Password"></AuthenFormGroup>
-                        </div>
-                        <div className="loginFormFooter">
-                            <Stack direction="row"
-                                justifyContent="space-between"
-                                alignItems="center"
-                                spacing={0}
-                            >
-                                <BtnCustom color="green">Login</BtnCustom>
-                                <Link href="/signup" underline="none">
-                                    <BtnCustom color="sky">Sign up</BtnCustom>
-                                </Link>
-                                
-                            </Stack>
-                        </div>
-                    </form>
-                </div>
-            </div>
-
-        )
+    function handleClickLogin() {
+        history.push("/home");
     }
+    return (
+        <div className='loginPage'>
+            <AuthenHeader />
+            <div className="loginFormWrapper">
+                <form action="" className="loginForm">
+                    <h1 className="loginForm-Header">Login</h1>
+                    <div className="loginForm-Main">
+                        <AuthenFormGroup title="Email"></AuthenFormGroup>
+                        <AuthenFormGroup title="Password"></AuthenFormGroup>
+                    </div>
+                    <div className="loginFormFooter">
+                        <Stack direction="row"
+                            justifyContent="space-between"
+                            alignItems="center"
+                            spacing={0}
+                        >
+                            <div onClick={handleClickLogin}>
+                                <BtnCustom color="green">Login</BtnCustom>
+                            </div>
+                            <Link href="/signup" underline="none">
+                                <BtnCustom color="sky">Sign up</BtnCustom>
+                            </Link>
+
+                        </Stack>
+                    </div>
+                </form>
+            </div>
+        </div>
+    )
 }
 
 export default Login
