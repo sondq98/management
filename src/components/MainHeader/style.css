@@ -45,3 +45,11 @@
     font-weight: bold;
 }
 
+.MuiList-root.MuiList-padding.MuiMenu-list {
+    padding: 5px 20px;
+}
+
+.MuiMenuItem-root.MuiMenuItem-gutters.MuiButtonBase-root:hover {
+    transform: scale(1.05);
+}
+

@@ -1,6 +1,6 @@
-import InputCpn from '../InputCpn/InputCpn'
+import InputCpn from '../InputCpn'
 
-import './AuthenFormGroup.css';
+import './style.css';
 
 export default function AuthenFormGroup(props) {
     return (

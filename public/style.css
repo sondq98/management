@@ -1,5 +1,16 @@
-.App {
+/* .App {
     border-left: 1px solid #000;
     border-right: 1px solid #000;
     min-height: 100vh;
+} */
+
+.btn-40 {
+    width: 134px !important;
+    height: 40px !important;
 }
+
+.btn-30 {
+    width: 90px !important;
+    height: 30px !important;
+}
+

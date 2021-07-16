@@ -1,0 +1,29 @@
+.form {
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form-logo-preview {
+  height: 116px;
+  width: 116px;
+  border: 1px solid lightgrey;
+  border-radius: 50%;
+}
+
+.form .form-btn {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 65px;
+}
+
+.form-btn .wrapper-btn {
+  width: 25%;
+  display: flex;
+  justify-content: space-around;
+}
+
+span.required {
+  color: red;
+}

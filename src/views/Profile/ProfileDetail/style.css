@@ -1,0 +1,80 @@
+.profileDetail {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    width: 1230px;
+    max-width: 100%;
+    margin: 20px auto;
+    padding: 0 0;
+    box-shadow: 0 3px 90px rgba(0, 0, 0, .16), 0 -5px 20px rgba(0, 0, 0, .16);
+}
+
+.infomationTab, .skillTab {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 700px;
+    border-radius: 6px;
+    box-shadow: 0 3px 90px rgba(0, 0, 0, .16), 0 -5px 30px rgba(0, 0, 0, .09);
+}
+
+.skillTab-TableWrapper {
+    padding: 40px 20px;
+}
+
+.skillTab-LastUpdateTime {
+    margin: 50px 0;
+}
+
+.timeUpdate-label {
+    margin-right: 30px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.mainPanel {
+    display: flex;
+    justify-content: space-between;
+    padding: 25px 20px;
+}
+
+.infoInCompany {
+    width: 52%;
+}
+
+.infoPersonal {
+    width: 47%;
+}
+
+.MuiTabs-root.css-1ujnqem-MuiTabs-root {
+    min-height: 31px;
+}
+
+.MuiBox-root.css-19kzrtu {
+    padding: 0;
+}
+
+.MuiTabs-flexContainer {
+    padding-left: 25px;
+}
+
+.MuiButtonBase-root.MuiTab-root.MuiTab-textColorPrimary {
+    padding: 0;
+    min-height: 30px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: capitalize;
+    border: 2px solid #C8C8C8;
+}
+
+.MuiButtonBase-root.MuiTab-root.MuiTab-textColorPrimary.Mui-selected {
+    background-color: #0058FF;
+    color: white;
+}
+
+label {
+    font-weight: bold;
+    margin-block-end: 0;
+}

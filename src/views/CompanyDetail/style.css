@@ -1,0 +1,8 @@
+.form-btn {
+  display: flex;
+  justify-content: space-between !important;
+}
+
+.wrapper-btn:nth-child(1) {
+  width: 40%;
+}

@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
 import { Link } from '@material-ui/core';
 import Stack from '@material-ui/core/Stack';
+import Button from '@material-ui/core/Button';
 
-import AuthenHeader from '../../components/AuthenHeader/AuthenHeader'
-import Btn40 from '../../components/Buttons/Btn40'
-import BtnCustom from '../../components/Buttons/BtnCustom'
-import AuthenFormGroup from '../../components/AuthenFormGroup/AuthenFormGroup'
+import AuthenHeader from '../../components/AuthenHeader'
+import AuthenFormGroup from '../../components/AuthenFormGroup'
 
-import './Signup.css'
+import './style.css'
 
 class Signup extends Component {
     render() {
@@ -20,9 +19,9 @@ class Signup extends Component {
                         <h1 className="signupForm-Header">Sign up</h1>
                         <div className="signupForm-Main">
                             <div className="signupForm-InputGroup">
-                            <AuthenFormGroup title="First Name"></AuthenFormGroup>
-                            <div className="space"></div>
-                            <AuthenFormGroup title="Last Name"></AuthenFormGroup>
+                                <AuthenFormGroup title="First Name"></AuthenFormGroup>
+                                <div className="space"></div>
+                                <AuthenFormGroup title="Last Name"></AuthenFormGroup>
                             </div>
                             <AuthenFormGroup title="Email"></AuthenFormGroup>
                             <AuthenFormGroup title="Phone number"></AuthenFormGroup>
@@ -35,11 +34,27 @@ class Signup extends Component {
                                 alignItems="center"
                                 spacing={0}
                             >
-                                <BtnCustom color="green">Register</BtnCustom>
+                                <Button
+                                    variant="contained"
+                                    className="btn-40"
+                                >
+                                    Register
+                                </Button>
                                 <Link href="/login" underline="none">
-                                    <BtnCustom color="dark">Back</BtnCustom>
+                                    <Button
+                                        variant="contained"
+                                        className="btn-40"
+                                        sx={{
+                                            bgcolor: '#212121',
+                                            '&:hover': {
+                                                bgcolor: '#080808'
+                                            }
+                                        }}
+                                    >
+                                        Back
+                                    </Button>
                                 </Link>
-                                
+
                             </Stack>
                         </div>
                     </form>

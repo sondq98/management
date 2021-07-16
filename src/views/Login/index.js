@@ -2,12 +2,12 @@ import React from 'react'
 import { useHistory } from "react-router-dom";
 import { Link } from '@material-ui/core';
 import Stack from '@material-ui/core/Stack';
+import Button from '@material-ui/core/Button';
 
-import AuthenHeader from '../../components/AuthenHeader/AuthenHeader'
-import BtnCustom from '../../components/Buttons/BtnCustom'
-import AuthenFormGroup from '../../components/AuthenFormGroup/AuthenFormGroup'
+import AuthenHeader from '../../components/AuthenHeader'
+import AuthenFormGroup from '../../components/AuthenFormGroup'
 
-import './Login.css'
+import './style.css'
 
 function Login() {
     let history = useHistory();
@@ -32,10 +32,10 @@ function Login() {
                             spacing={0}
                         >
                             <div onClick={handleClickLogin}>
-                                <BtnCustom color="green">Login</BtnCustom>
+                            <Button variant="contained" className="btn-40" color="success">Login</Button>
                             </div>
                             <Link href="/signup" underline="none">
-                                <BtnCustom color="sky">Sign up</BtnCustom>
+                            <Button variant="contained" className="btn-40">Sign up</Button>
                             </Link>
 
                         </Stack>

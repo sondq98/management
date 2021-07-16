@@ -1,0 +1,8 @@
+.MuiMenuItem-root.MuiMenuItem-gutters.MuiButtonBase-root {
+    height: 52px;
+    background-color: #E8F1FF;
+}
+
+.MuiTypography-root.MuiTypography-body1.MuiListItemText-primary {
+    font-weight: bold;
+}

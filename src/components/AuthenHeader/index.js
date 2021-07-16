@@ -1,4 +1,4 @@
-import './AuthenHeader.css';
+import './style.css';
 
 export default function AuthenHeader() {
     return (
