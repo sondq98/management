@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { Link } from '@material-ui/core';
+import React from 'react';
+import { useHistory } from "react-router-dom";
 import Stack from '@material-ui/core/Stack';
 import Button from '@material-ui/core/Button';
 
@@ -8,8 +8,12 @@ import AuthenFormGroup from '../../components/AuthenFormGroup'
 
 import './style.css'
 
-class Signup extends Component {
-    render() {
+function Signup() {
+    let history = useHistory();
+
+    function handleClickBack() {
+        history.push("/login");
+    }
         return (
 
             <div className='signupPage'>
@@ -40,9 +44,9 @@ class Signup extends Component {
                                 >
                                     Register
                                 </Button>
-                                <Link href="/login" underline="none">
                                     <Button
                                         variant="contained"
+                                        onClick={handleClickBack}
                                         className="btn-40"
                                         sx={{
                                             bgcolor: '#212121',
@@ -53,16 +57,12 @@ class Signup extends Component {
                                     >
                                         Back
                                     </Button>
-                                </Link>
-
                             </Stack>
                         </div>
                     </form>
                 </div>
             </div>
-
         )
-    }
 }
 
-export default Signup
+export default Signup;

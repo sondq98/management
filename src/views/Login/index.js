@@ -1,6 +1,5 @@
 import React from 'react'
 import { useHistory } from "react-router-dom";
-import { Link } from '@material-ui/core';
 import Stack from '@material-ui/core/Stack';
 import Button from '@material-ui/core/Button';
 
@@ -14,6 +13,9 @@ function Login() {
 
     function handleClickLogin() {
         history.push("/home");
+    }
+    function handleClickSignup() {
+        history.push("/signup");
     }
     return (
         <div className='loginPage'>
@@ -31,13 +33,8 @@ function Login() {
                             alignItems="center"
                             spacing={0}
                         >
-                            <div onClick={handleClickLogin}>
-                            <Button variant="contained" className="btn-40" color="success">Login</Button>
-                            </div>
-                            <Link href="/signup" underline="none">
-                            <Button variant="contained" className="btn-40">Sign up</Button>
-                            </Link>
-
+                            <Button variant="contained" onClick={handleClickLogin} className="btn-40" color="success">Login</Button>
+                            <Button variant="contained" onClick={handleClickSignup} className="btn-40">Sign up</Button>
                         </Stack>
                     </div>
                 </form>
