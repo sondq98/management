@@ -6,7 +6,7 @@ import { Grid } from "@material-ui/core";
 import { PhotoCamera } from "@material-ui/icons";
 import  Input from "@material-ui/core/Input";
 
-import StyledInput from '../../../../components/InputCpn';
+import StyledInput from '../../../components/InputCpn';
 
 function InfomationTab() {
     let history = useHistory();

@@ -1,21 +1,20 @@
-import MainHeader from "../../components/MainHeader";
-import "./style.css";
-import StyledInput from "../../components/TextField";
-import StyledButton from "../../components/Button";
 import {
-  Pagination,
-  Table,
   Grid,
   InputLabel,
-  MenuItem,
-  Select,
+  Pagination,
+  Table,
+  TableBody,
+  TableCell,
   TableContainer,
   TableHead,
-  TableCell,
   TableRow,
-  TableBody,
 } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
+import StyledButton from "../../components/Button";
+import MainHeader from "../../components/MainHeader";
+import StyledSelect from "../../components/Select";
+import StyledInput from "../../components/TextField";
+import "./style.css";
 const CompanyManagement = function () {
   const route = useHistory();
   const goToDetailPage = () => {
@@ -27,7 +26,7 @@ const CompanyManagement = function () {
       <div className="wrapper">
         <div style={{ height: "345px" }}>
           <h3 className="wrapper-header">Company Management</h3>
-          <Grid container ml={3} mt={3} rowGap={1}>
+          <Grid container ml={3} mt={3} rowGap={2}>
             <Grid container item>
               <Grid item xs={2} className="form-group">
                 <label htmlFor="">Company</label>
@@ -67,12 +66,16 @@ const CompanyManagement = function () {
                 <label htmlFor="">Status</label>
               </Grid>
               <Grid item>
-                <StyledInput size="medium" placeholder="Status" />
+                <StyledSelect
+                  defaultValue="working"
+                  data={["Working", "Pending", "Stopped"]}
+                />
               </Grid>
             </Grid>
             <div className="form-group"></div>
           </Grid>
         </div>
+        <hr />
         <div className="btn-wrapper">
           <div className="btn-nav">
             <StyledButton
@@ -110,12 +113,12 @@ const CompanyManagement = function () {
                 }}
               >
                 <TableRow>
-                  <TableCell align="center">Code</TableCell>
-                  <TableCell align="center">Company name</TableCell>
-                  <TableCell align="center">Email</TableCell>
-                  <TableCell align="center">Phone number</TableCell>
-                  <TableCell align="center">Status</TableCell>
-                  <TableCell align="center">Action</TableCell>
+                  <TableCell className="table-cell">Code</TableCell>
+                  <TableCell className="table-cell">Company name</TableCell>
+                  <TableCell className="table-cell">Email</TableCell>
+                  <TableCell className="table-cell">Phone number</TableCell>
+                  <TableCell className="table-cell">Status</TableCell>
+                  <TableCell className="table-cell">Action</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -255,13 +258,11 @@ const CompanyManagement = function () {
           <div className="table-pagination">
             <div className="table-row-num">
               <InputLabel>Row per page :</InputLabel>
-              <Select input={<StyledInput sx={{ width: "40px" }} />}>
-                <MenuItem value={1}>1</MenuItem>
-                <MenuItem value={2}>2</MenuItem>
-                <MenuItem value={3}>3</MenuItem>
-                <MenuItem value={4}>4</MenuItem>
-                <MenuItem value={5}>5</MenuItem>
-              </Select>
+              <StyledSelect
+                defaultValue={5}
+                data={[5, 6, 7, 8, 9]}
+                size="small"
+              />
             </div>
             <div className="pagination">
               <h3> 1-5 of 30</h3>

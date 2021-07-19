@@ -13,8 +13,6 @@ import CollectionsBookmarkIcon from '@material-ui/icons/CollectionsBookmark';
 import AssignmentIcon from '@material-ui/icons/Assignment';
 import PeopleIcon from '@material-ui/icons/People';
 
-import "./style.css"
-
 export default function SideBar() {
 
     let history = useHistory();
@@ -41,43 +39,95 @@ export default function SideBar() {
             width: 250,
             maxWidth: '100%',
         }}>
-            <MenuList>
-                <MenuItem onClick={handleClickHome}>
+            <MenuList style={{
+                margin : '5px 20px',
+                border: '1px solid rgba(0, 0, 0, 0.12)'
+            }}>
+                
+                <MenuItem onClick={handleClickHome} sx={{
+                    height: '52px',
+                    marginX: '10px',
+                    borderRadius: '6px',
+                    fontWeight: 'bold',backgroundColor: '#E8F1FF',
+                    "&:hover": {
+                        backgroundColor: '#E8F1FF',
+                    },
+                }}>
                     <ListItemIcon>
                         <HomeOutlinedIcon />
                     </ListItemIcon>
                     <ListItemText>Home</ListItemText>
                 </MenuItem>
                 <Divider />
-                <MenuItem onClick={handleClickCompany}>
+                <MenuItem onClick={handleClickCompany} sx={{
+                    height: '52px',
+                    marginX: '10px',
+                    borderRadius: '6px',
+                    fontWeight: 'bold',backgroundColor: '#E8F1FF',
+                    "&:hover": {
+                        backgroundColor: '#E8F1FF',
+                    },
+                }}>
                     <ListItemIcon>
                         <BusinessOutlinedIcon />
                     </ListItemIcon>
                     <ListItemText>Company</ListItemText>
                 </MenuItem>
                 <Divider />
-                <MenuItem onClick={handleClickBranch}>
+                <MenuItem onClick={handleClickBranch} sx={{
+                    height: '52px',
+                    marginX: '10px',
+                    borderRadius: '6px',
+                    fontWeight: 'bold',backgroundColor: '#E8F1FF',
+                    "&:hover": {
+                        backgroundColor: '#E8F1FF',
+                    },
+                }}>
                     <ListItemIcon>
                         <LayersIcon />
                     </ListItemIcon>
                     <ListItemText>Branch</ListItemText>
                 </MenuItem>
                 <Divider />
-                <MenuItem onClick={handleClickDivision}>
+                <MenuItem onClick={handleClickDivision} sx={{
+                    height: '52px',
+                    marginX: '10px',
+                    borderRadius: '6px',
+                    fontWeight: 'bold',backgroundColor: '#E8F1FF',
+                    "&:hover": {
+                        backgroundColor: '#E8F1FF',
+                    },
+                }}>
                     <ListItemIcon>
                         <CollectionsBookmarkIcon />
                     </ListItemIcon>
                     <ListItemText>Division</ListItemText>
                 </MenuItem>
                 <Divider />
-                <MenuItem onClick={handleClickProject}>
+                <MenuItem onClick={handleClickProject} sx={{
+                    height: '52px',
+                    marginX: '10px',
+                    borderRadius: '6px',
+                    fontWeight: 'bold',backgroundColor: '#E8F1FF',
+                    "&:hover": {
+                        backgroundColor: '#E8F1FF',
+                    },
+                }}>
                     <ListItemIcon>
                         <AssignmentIcon />
                     </ListItemIcon>
                     <ListItemText>Project</ListItemText>
                 </MenuItem>
                 <Divider />
-                <MenuItem onClick={handleClickHumanResource}>
+                <MenuItem onClick={handleClickHumanResource} sx={{
+                    height: '52px',
+                    marginX: '10px',
+                    borderRadius: '6px',
+                    fontWeight: 'bold',backgroundColor: '#E8F1FF',
+                    "&:hover": {
+                        backgroundColor: '#E8F1FF',
+                    },
+                }}>
                     <ListItemIcon>
                         <PeopleIcon />
                     </ListItemIcon>

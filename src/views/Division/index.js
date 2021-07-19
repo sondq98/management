@@ -2,9 +2,7 @@ import {
   Container,
   Divider,
   Grid,
-  MenuItem,
   Pagination,
-  Select,
   Table,
   TableBody,
   TableCell,
@@ -15,6 +13,7 @@ import {
 import { useHistory } from "react-router-dom";
 import StyledButton from "../../components/Button";
 import MainHeader from "../../components/MainHeader";
+import StyledSelect from "../../components/Select";
 import StyledInput from "../../components/TextField";
 import "./style.css";
 
@@ -26,7 +25,7 @@ function DivisionManagement() {
       <div className="wrapper">
         <h3 className="wrapper__header">Division Management</h3>
         <Container>
-          <Grid mt={4} pb={2} rowGap={2} xs={12} container>
+          <Grid mt={4} pb={2} rowGap={2} container>
             <Grid xs={10} display="flex" alignItems="center" container item>
               <Grid xs={2} item>
                 <label>Company</label>
@@ -95,9 +94,10 @@ function DivisionManagement() {
                 <label>Status</label>
               </Grid>
               <Grid xs={8} item>
-                <Select sx={{ width: "250px", height: "40px", border: "none" }}>
-                  <MenuItem value="working">Working</MenuItem>
-                </Select>
+                <StyledSelect
+                  defaultValue="working"
+                  data={["Working", "Pending", "Stopped"]}
+                />
               </Grid>
             </Grid>
           </Grid>
@@ -217,18 +217,16 @@ function DivisionManagement() {
               </TableRow>
             </TableBody>
           </Table>
+        </TableContainer>
+        <Container>
           <div className="table-pagination">
             <div>
               <label>Row per page &ensp;</label>
-              <Select sx={{ height: "36px", width: "50px" }}>
-                <MenuItem selected value={5}>
-                  5
-                </MenuItem>
-                <MenuItem value={6}>6</MenuItem>
-                <MenuItem value={7}>7</MenuItem>
-                <MenuItem value={8}>8</MenuItem>
-                <MenuItem value={9}>9</MenuItem>
-              </Select>
+              <StyledSelect
+                data={[5, 6, 7, 8, 9]}
+                defaultValue={5}
+                size="small"
+              />
             </div>
             <div className="pagination">
               <label>1-5 of 50</label>
@@ -242,7 +240,7 @@ function DivisionManagement() {
               />
             </div>
           </div>
-        </TableContainer>
+        </Container>
       </div>
     </>
   );

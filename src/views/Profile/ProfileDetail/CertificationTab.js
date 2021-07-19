@@ -123,11 +123,11 @@ function CertificationTable() {
                         <TableRow
                             key={row.stt}
                         >
-                            <TableCell component="th" scope="row">{row.stt}</TableCell>
-                            <TableCell align="right">{row.certificate}</TableCell>
-                            <TableCell align="right">{row.filename}</TableCell>
-                            <TableCell align="right">{row.date}</TableCell>
-                            <TableCell align="right">{row.duration}</TableCell>
+                            <TableCell align="center" padding="none">{row.stt}</TableCell>
+                            <TableCell align="center" padding="none">{row.certificate}</TableCell>
+                            <TableCell align="center" padding="none">{row.filename}</TableCell>
+                            <TableCell align="center" padding="none">{row.date}</TableCell>
+                            <TableCell align="center" padding="none">{row.duration}</TableCell>
                         </TableRow>
                     ))}
                 </TableBody>
@@ -164,12 +164,12 @@ function CertificationTableUpdate() {
                         <TableRow
                             key={row.stt}
                         >
-                            <TableCell component="th" scope="row">{row.stt}</TableCell>
-                            <TableCell align="right">{row.certificate}</TableCell>
-                            <TableCell align="right">{row.filename}</TableCell>
-                            <TableCell align="right">{row.date}</TableCell>
-                            <TableCell align="right">{row.duration}</TableCell>
-                            <TableCell align="right">
+                            <TableCell align="center" padding="none">{row.stt}</TableCell>
+                            <TableCell align="center" padding="none">{row.certificate}</TableCell>
+                            <TableCell align="center" padding="none">{row.filename}</TableCell>
+                            <TableCell align="center" padding="none">{row.date}</TableCell>
+                            <TableCell align="center" padding="none">{row.duration}</TableCell>
+                            <TableCell align="center" padding="none">
                                 {row.button === 'Delete' ? <DeleteBtn />
                                     : row.button === 'Add' ? <AddBtn />
                                         : ''}

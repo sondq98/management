@@ -120,6 +120,7 @@ export default function MainHeader() {
                     overflow: "visible",
                     filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
                     mt: 1.5,
+                    px: 2.5,
                     "& .MuiAvatar-root": {
                       width: 24,
                       height: 24,

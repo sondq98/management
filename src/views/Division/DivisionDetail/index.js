@@ -13,9 +13,9 @@ import CheckCircleOutline from "@material-ui/icons/CheckCircleOutline";
 import HelpOutlineIcon from "@material-ui/icons/HelpOutline";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
-import StyledButton from "../../components/Button";
-import MainHeader from "../../components/MainHeader";
-import StyledInput from "../../components/TextField";
+import StyledButton from "../../../components/Button";
+import MainHeader from "../../../components/MainHeader";
+import StyledInput from "../../../components/TextField";
 
 function DivisionDetail() {
   const route = useHistory();
@@ -144,21 +144,41 @@ function DivisionDetail() {
         <Container>
           <div className="wrapper-button wrapper-button-side">
             <div className="wrapper-button__div">
-              <StyledButton onClick={handleClickStatus} color="success">
+              <StyledButton
+                onClick={handleClickStatus}
+                variant="contained"
+                color="success"
+              >
                 Working
               </StyledButton>
-              <StyledButton onClick={handleClickStatus} color="warning">
+              <StyledButton
+                onClick={handleClickStatus}
+                variant="contained"
+                color="warning"
+              >
                 Pending
               </StyledButton>
-              <StyledButton onClick={handleClickStatus} color="error">
+              <StyledButton
+                onClick={handleClickStatus}
+                variant="contained"
+                color="error"
+              >
                 Stop
               </StyledButton>
             </div>
             <div className="wrapper-button__div button-2">
-              <StyledButton onClick={handleClickUpdate} color="primary">
+              <StyledButton
+                onClick={handleClickUpdate}
+                variant="contained"
+                color="primary"
+              >
                 Update
               </StyledButton>
-              <StyledButton onClick={() => route.goBack()} color="inherit">
+              <StyledButton
+                onClick={() => route.goBack()}
+                variant="contained"
+                color="inherit"
+              >
                 Back
               </StyledButton>
             </div>
@@ -185,6 +205,7 @@ function DivisionDetail() {
         <DialogActions>
           <Box mb={1}>
             <StyledButton
+              variant="contained"
               sx={{ marginRight: "10px" }}
               color="success"
               onClick={() => {
@@ -199,6 +220,7 @@ function DivisionDetail() {
                 setIsShowUpdateDivision(false);
               }}
               color="inherit"
+              variant="contained"
             >
               Cancel
             </StyledButton>
@@ -228,13 +250,18 @@ function DivisionDetail() {
         </DialogContent>
         <DialogActions>
           <Box mb={1}>
-            <StyledButton sx={{ marginRight: "10px" }} color="success">
+            <StyledButton
+              sx={{ marginRight: "10px" }}
+              variant="contained"
+              color="success"
+            >
               OK
             </StyledButton>
             <StyledButton
               onClick={() => {
                 setIsShowChangeStatus(false);
               }}
+              variant="contained"
               color="inherit"
             >
               Cancel
@@ -263,6 +290,7 @@ function DivisionDetail() {
         <DialogActions>
           <Box mb={1}>
             <StyledButton
+              variant="contained"
               onClick={() => {
                 handleClickSuccess();
               }}

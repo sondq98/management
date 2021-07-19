@@ -1,8 +1,8 @@
-import { Grid, Container, Divider } from "@material-ui/core";
+import { Container, Divider, Grid } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
-import StyledButton from "../../components/Button";
-import MainHeader from "../../components/MainHeader";
-import StyledInput from "../../components/TextField";
+import StyledButton from "../../../components/Button";
+import MainHeader from "../../../components/MainHeader";
+import StyledInput from "../../../components/TextField";
 
 function DivisionRegister() {
   const route = useHistory();
@@ -100,12 +100,15 @@ function DivisionRegister() {
         <Container>
           <div className="wrapper-button">
             <div className="wrapper-button__div button-2">
-              <StyledButton color="success">Register</StyledButton>
+              <StyledButton color="success" variant="contained">
+                Register
+              </StyledButton>
               <StyledButton
                 onClick={() => {
                   route.goBack();
                 }}
                 color="inherit"
+                variant="contained"
               >
                 Back
               </StyledButton>

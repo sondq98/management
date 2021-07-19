@@ -128,12 +128,12 @@ function SkillTable() {
                         <TableRow
                             key={row.skillName}
                         >
-                            <TableCell component="th" scope="row">{row.skillType}</TableCell>
-                            <TableCell align="right">{row.skillName}</TableCell>
-                            <TableCell align="right">{row.skillNote}</TableCell>
-                            <TableCell align="right">{row.experiences}</TableCell>
-                            <TableCell align="right">{row.noteExperiences}</TableCell>
-                            <TableCell align="right">{row.level}</TableCell>
+                            <TableCell align="center" padding="none">{row.skillType}</TableCell>
+                            <TableCell align="center" padding="none">{row.skillName}</TableCell>
+                            <TableCell align="center" padding="none">{row.skillNote}</TableCell>
+                            <TableCell align="center" padding="none">{row.experiences}</TableCell>
+                            <TableCell align="center" padding="none">{row.noteExperiences}</TableCell>
+                            <TableCell align="center" padding="none">{row.level}</TableCell>
                         </TableRow>
                     ))}
                 </TableBody>
@@ -171,13 +171,13 @@ function SkillTableUpdate() {
                         <TableRow
                             key={row.skillName}
                         >
-                            <TableCell component="th" scope="row">{row.skillType}</TableCell>
-                            <TableCell align="right">{row.skillName}</TableCell>
-                            <TableCell align="right">{row.skillNote}</TableCell>
-                            <TableCell align="right">{row.experiences}</TableCell>
-                            <TableCell align="right">{row.noteExperiences}</TableCell>
-                            <TableCell align="right">{row.level}</TableCell>
-                            <TableCell align="right">
+                            <TableCell align="center" padding="none">{row.skillType}</TableCell>
+                            <TableCell align="center" padding="none">{row.skillName}</TableCell>
+                            <TableCell align="center" padding="none">{row.skillNote}</TableCell>
+                            <TableCell align="center" padding="none">{row.experiences}</TableCell>
+                            <TableCell align="center" padding="none">{row.noteExperiences}</TableCell>
+                            <TableCell align="center" padding="none">{row.level}</TableCell>
+                            <TableCell align="center" padding="none">
                                 {row.button === 'Delete' ? <DeleteBtn />
                                     : row.button === 'Add' ? <AddBtn />
                                         : ''}

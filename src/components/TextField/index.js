@@ -21,6 +21,7 @@ function StyledInput(props) {
       }}
       disableUnderline={true}
       {...props}
+      onChange={props.handleChange}
     />
   );
 }

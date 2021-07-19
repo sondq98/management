@@ -18,20 +18,19 @@ import MainHeader from "../../components/MainHeader";
 import StyledInput from "../../components/TextField";
 import StyledButton from "../../components/Button";
 
-import "./style.css";
 
-const CompanyManagement = function () {
-    const route = useHistory();
+const BranchManagement = function () {
+    const history = useHistory();
     const goToDetailPage = () => {
-        route.push("/company/update");
+        history.push("/branch/detail");
     };
     return (
         <div className="container-div">
             <MainHeader />
             <div className="wrapper">
-                <div>
+                <div className="infoBranch-wrapper">
                     <h3 className="headerPanel">Branch Management</h3>
-                    <Grid container ml={3} mt={3} mb={3} rowGap={1}>
+                    <Grid container pl={3} my={3} rowGap={1}>
                         <Grid container item mb={1}>
                             <Grid item xs={2} className="form-group">
                                 <label htmlFor="">Company</label>
@@ -95,11 +94,12 @@ const CompanyManagement = function () {
                         <div className="form-group"></div>
                     </Grid>
                 </div>
+                <hr />
                 <div className="btn-wrapper">
                     <div className="btn-nav">
                         <StyledButton
                             onClick={() => {
-                                route.push("/company/register");
+                                history.push("/branch/register");
                             }}
                             variant="contained"
                             color="success"
@@ -112,11 +112,12 @@ const CompanyManagement = function () {
                         <Button
                             variant="contained"
                             onClick={() => {
-                                route.goBack();
+                                history.push("/home");
                             }}
                             className="btn-30"
                             sx={{
                                 bgcolor: '#323232',
+                                textTransform: 'capitalize',
                                 '&:hover': {
                                     bgcolor: '#080808'
                                 }
@@ -124,7 +125,7 @@ const CompanyManagement = function () {
                         >
                             Back
                         </Button>
-                        
+
                     </div>
                 </div>
                 <div className="table-wrapper">
@@ -133,29 +134,26 @@ const CompanyManagement = function () {
                             <TableHead
                                 sx={{
                                     backgroundColor: "#72acff",
-                                    textAlign: "center",
-                                    lineHeight: "2",
-                                    fontStyle: "bold",
                                 }}
                             >
                                 <TableRow>
-                                    <TableCell align="center">Code</TableCell>
-                                    <TableCell align="center">Company name</TableCell>
-                                    <TableCell align="center">Email</TableCell>
-                                    <TableCell align="center">Phone number</TableCell>
-                                    <TableCell align="center">Status</TableCell>
-                                    <TableCell align="center">Action</TableCell>
+                                    <TableCell align="center" sx={{ fontWeight: 'bold' }}>Code</TableCell>
+                                    <TableCell align="center" sx={{ fontWeight: 'bold' }}>Branch name</TableCell>
+                                    <TableCell align="center" sx={{ fontWeight: 'bold' }}>Email</TableCell>
+                                    <TableCell align="center" sx={{ fontWeight: 'bold' }}>Phone number</TableCell>
+                                    <TableCell align="center" sx={{ fontWeight: 'bold' }}>Status</TableCell>
+                                    <TableCell align="center" sx={{ fontWeight: 'bold' }}></TableCell>
                                 </TableRow>
                             </TableHead>
                             <TableBody>
                                 <TableRow>
-                                    <TableCell align="center">Code</TableCell>
-                                    <TableCell align="center">Company name</TableCell>
-                                    <TableCell align="center">
+                                    <TableCell align="center" padding="none">BR0001</TableCell>
+                                    <TableCell align="center" padding="none">ABC</TableCell>
+                                    <TableCell align="center" padding="none">
                                         anh.nguyenductuan@vti.com.vn
                                     </TableCell>
-                                    <TableCell align="center">Phone number</TableCell>
-                                    <TableCell align="center">
+                                    <TableCell align="center" padding="none">Phone number</TableCell>
+                                    <TableCell align="center" padding="none">
                                         <StyledButton
                                             variant="contained"
                                             color="success"
@@ -164,7 +162,7 @@ const CompanyManagement = function () {
                                             Working
                                         </StyledButton>
                                     </TableCell>
-                                    <TableCell>
+                                    <TableCell padding="none">
                                         <div className="table-data__action">
                                             <StyledButton
                                                 onClick={goToDetailPage}
@@ -182,13 +180,13 @@ const CompanyManagement = function () {
                             </TableBody>
                             <TableBody>
                                 <TableRow>
-                                    <TableCell align="center">Code</TableCell>
-                                    <TableCell align="center">Company name</TableCell>
-                                    <TableCell align="center">
+                                    <TableCell align="center" padding="none">BR0001</TableCell>
+                                    <TableCell align="center" padding="none">ABC</TableCell>
+                                    <TableCell align="center" padding="none">
                                         anh.nguyenductuan@vti.com.vn
                                     </TableCell>
-                                    <TableCell align="center">Phone number</TableCell>
-                                    <TableCell align="center">
+                                    <TableCell align="center" padding="none">Phone number</TableCell>
+                                    <TableCell align="center" padding="none">
                                         <StyledButton
                                             variant="contained"
                                             color="success"
@@ -197,7 +195,7 @@ const CompanyManagement = function () {
                                             Working
                                         </StyledButton>
                                     </TableCell>
-                                    <TableCell>
+                                    <TableCell padding="none">
                                         <div className="table-data__action">
                                             <StyledButton
                                                 onClick={goToDetailPage}
@@ -215,13 +213,13 @@ const CompanyManagement = function () {
                             </TableBody>
                             <TableBody>
                                 <TableRow>
-                                    <TableCell align="center">Code</TableCell>
-                                    <TableCell align="center">Company name</TableCell>
-                                    <TableCell align="center">
+                                    <TableCell align="center" padding="none">BR0001</TableCell>
+                                    <TableCell align="center" padding="none">ABC</TableCell>
+                                    <TableCell align="center" padding="none">
                                         anh.nguyenductuan@vti.com.vn
                                     </TableCell>
-                                    <TableCell align="center">Phone number</TableCell>
-                                    <TableCell align="center">
+                                    <TableCell align="center" padding="none">Phone number</TableCell>
+                                    <TableCell align="center" padding="none">
                                         <StyledButton
                                             variant="contained"
                                             color="success"
@@ -230,7 +228,7 @@ const CompanyManagement = function () {
                                             Working
                                         </StyledButton>
                                     </TableCell>
-                                    <TableCell>
+                                    <TableCell padding="none">
                                         <div className="table-data__action">
                                             <StyledButton
                                                 onClick={goToDetailPage}
@@ -248,13 +246,13 @@ const CompanyManagement = function () {
                             </TableBody>
                             <TableBody>
                                 <TableRow>
-                                    <TableCell align="center">Code</TableCell>
-                                    <TableCell align="center">Company name</TableCell>
-                                    <TableCell align="center">
+                                    <TableCell align="center" padding="none">BR0001</TableCell>
+                                    <TableCell align="center" padding="none">ABC</TableCell>
+                                    <TableCell align="center" padding="none">
                                         anh.nguyenductuan@vti.com.vn
                                     </TableCell>
-                                    <TableCell align="center">Phone number</TableCell>
-                                    <TableCell align="center">
+                                    <TableCell align="center" padding="none">Phone number</TableCell>
+                                    <TableCell align="center" padding="none">
                                         <StyledButton
                                             variant="contained"
                                             color="success"
@@ -263,7 +261,7 @@ const CompanyManagement = function () {
                                             Working
                                         </StyledButton>
                                     </TableCell>
-                                    <TableCell>
+                                    <TableCell padding="none">
                                         <div className="table-data__action">
                                             <StyledButton
                                                 onClick={goToDetailPage}
@@ -284,7 +282,11 @@ const CompanyManagement = function () {
                     <div className="table-pagination">
                         <div className="table-row-num">
                             <InputLabel>Row per page :</InputLabel>
-                            <Select input={<StyledInput sx={{ width: "40px" }} />}>
+                            <Select
+                                labelId="demo-simple-select-label"
+                                id="demo-simple-select"
+                                input={<StyledInput sx={{ width: "40px" }} />}
+                            >
                                 <MenuItem value={1}>1</MenuItem>
                                 <MenuItem value={2}>2</MenuItem>
                                 <MenuItem value={3}>3</MenuItem>
@@ -308,4 +310,4 @@ const CompanyManagement = function () {
     );
 };
 
-export default CompanyManagement;
+export default BranchManagement;

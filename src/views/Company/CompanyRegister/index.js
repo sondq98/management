@@ -1,9 +1,9 @@
-import MainHeader from "../../components/MainHeader";
+import MainHeader from "../../../components/MainHeader";
 import "./style.css";
-import StyledButton from "../../components/Button";
+import StyledButton from "../../../components/Button";
 import { Input, Button, Grid, Typography } from "@material-ui/core";
 import { PhotoCamera } from "@material-ui/icons";
-import StyledInput from "../../components/TextField";
+import StyledInput from "../../../components/TextField";
 import { useHistory } from "react-router-dom";
 function CompanyRegister() {
   const route = useHistory();
@@ -22,9 +22,9 @@ function CompanyRegister() {
             borderBottom="1px solid lightgray"
           >
             <Grid container item xs={10}>
-              <Grid container rowGap={3}>
+              <Grid container rowGap={2}>
                 <Grid container>
-                  <Grid item xs={4}>
+                  <Grid item xs={4} className="label">
                     <label htmlFor="">
                       Company Code <span className="required">*</span>
                     </label>
@@ -43,7 +43,7 @@ function CompanyRegister() {
                   </Grid>
                 </Grid>
                 <Grid container>
-                  <Grid item xs={4}>
+                  <Grid item xs={4} className="label">
                     <label htmlFor="">
                       Company Name <span className="required">*</span>
                     </label>
@@ -60,7 +60,7 @@ function CompanyRegister() {
                     </Grid>
                   </Grid>
                 </Grid>
-                <Grid item xs={4}>
+                <Grid item xs={4} className="label">
                   <label htmlFor="">
                     Address <span className="required">*</span>
                   </label>
@@ -69,7 +69,7 @@ function CompanyRegister() {
                   <StyledInput placeholder="Address" />
                 </Grid>
                 <Grid container>
-                  <Grid item xs={4}>
+                  <Grid item xs={4} className="label">
                     <label htmlFor="">
                       Email <span className="required">*</span>
                     </label>
@@ -79,7 +79,7 @@ function CompanyRegister() {
                   </Grid>
                 </Grid>
                 <Grid container>
-                  <Grid item xs={4}>
+                  <Grid item xs={4} className="label">
                     <label htmlFor="">
                       Phone Number <span className="required">*</span>
                     </label>
@@ -89,7 +89,7 @@ function CompanyRegister() {
                   </Grid>
                 </Grid>
                 <Grid container>
-                  <Grid item xs={4}>
+                  <Grid item xs={4} className="label">
                     <label htmlFor="website">Website</label>
                   </Grid>
                   <Grid item>
@@ -101,7 +101,7 @@ function CompanyRegister() {
                   </Grid>
                 </Grid>
                 <Grid container>
-                  <Grid item xs={4}>
+                  <Grid item xs={4} className="label">
                     <label htmlFor="website">Status</label>
                   </Grid>
                   <Grid item>
@@ -118,7 +118,7 @@ function CompanyRegister() {
                 alignItems="center"
                 justifyContent="space-between"
               >
-                <Grid item>
+                <Grid item className="label">
                   <label style={{ width: "fit-content" }}>
                     Logo <span className="required">*</span>
                   </label>

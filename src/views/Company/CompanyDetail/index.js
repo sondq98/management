@@ -16,9 +16,9 @@ import {
 } from "@material-ui/icons";
 import React, { useState } from "react";
 import { useHistory } from "react-router";
-import StyledButton from "../../components/Button/";
-import MainHeader from "../../components/MainHeader";
-import StyledInput from "../../components/TextField";
+import StyledButton from "../../../components/Button/";
+import MainHeader from "../../../components/MainHeader";
+import StyledInput from "../../../components/TextField";
 import "./style.css";
 function CompanyDetail() {
   const route = useHistory();
@@ -26,9 +26,8 @@ function CompanyDetail() {
   const [isShowChangeModal, setIsShowChangeModal] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const handleUpdate = () => {
-    setTimeout(() => {
-      setIsSuccess(true);
-    }, 3000);
+    setIsShowConfirmModal(false);
+    setIsSuccess(true);
   };
   return (
     <React.Fragment>
@@ -47,7 +46,7 @@ function CompanyDetail() {
             <Grid container item xs={10} md={10} sm={18}>
               <Grid container rowGap={3}>
                 <Grid container>
-                  <Grid item xs={4}>
+                  <Grid item xs={4} className="label">
                     <label htmlFor="">
                       Company <span className="required">*</span>
                     </label>
@@ -60,19 +59,20 @@ function CompanyDetail() {
                           placeholder="Code"
                           size="small"
                           required
+                          disabled
                         />
                       </Grid>
                       <Grid item>
                         <StyledInput
                           size="medium"
                           value="VTI Company"
-                          read-only
+                          disabled
                         />
                       </Grid>
                     </Grid>
                   </Grid>
                 </Grid>
-                <Grid item xs={4}>
+                <Grid item xs={4} className="label">
                   <label htmlFor="">
                     Address <span className="required">*</span>
                   </label>
@@ -81,7 +81,7 @@ function CompanyDetail() {
                   <StyledInput placeholder="Address" />
                 </Grid>
                 <Grid container>
-                  <Grid item xs={4}>
+                  <Grid item xs={4} className="label">
                     <label htmlFor="">
                       Email <span className="required">*</span>
                     </label>
@@ -91,7 +91,7 @@ function CompanyDetail() {
                   </Grid>
                 </Grid>
                 <Grid container>
-                  <Grid item xs={4}>
+                  <Grid item xs={4} className="label">
                     <label htmlFor="">
                       Phone Number <span className="required">*</span>
                     </label>
@@ -101,7 +101,7 @@ function CompanyDetail() {
                   </Grid>
                 </Grid>
                 <Grid container>
-                  <Grid item xs={4}>
+                  <Grid item xs={4} className="label">
                     <label htmlFor="website">Website</label>
                   </Grid>
                   <Grid item>
@@ -113,7 +113,7 @@ function CompanyDetail() {
                   </Grid>
                 </Grid>
                 <Grid container>
-                  <Grid item xs={4}>
+                  <Grid item xs={4} className="label">
                     <label htmlFor="website">Status</label>
                   </Grid>
                   <Grid item>
@@ -130,7 +130,7 @@ function CompanyDetail() {
                 alignItems="center"
                 justifyContent="space-between"
               >
-                <Grid item>
+                <Grid item className="label">
                   <label style={{ width: "fit-content" }}>
                     Logo <span className="required">*</span>
                   </label>
@@ -138,7 +138,7 @@ function CompanyDetail() {
                 <Grid item>
                   <div className="form-logo-preview"></div>
                 </Grid>
-                <Grid item>
+                <Grid item className="label">
                   <label htmlFor="contained-button-file">
                     <Input
                       accept="image/*"
@@ -216,7 +216,7 @@ function CompanyDetail() {
       >
         <DialogTitle id="alert-dialog-title">Confirm Dialog</DialogTitle>
         <DialogContent>
-          <Grid container>
+          <Grid container columnGap={1}>
             <Grid item>
               <HelpOutline />
             </Grid>
@@ -257,7 +257,7 @@ function CompanyDetail() {
       >
         <DialogTitle id="alert-dialog-title">Confirm Dialog</DialogTitle>
         <DialogContent>
-          <Grid container>
+          <Grid container columnGap={1}>
             <Grid item>
               <HelpOutline />
             </Grid>
@@ -295,15 +295,12 @@ function CompanyDetail() {
         aria-describedby="alert-dialog-description"
       >
         <DialogContent>
-          <Grid container>
+          <Grid container columnGap={1}>
             <Grid item>
               <CheckCircleOutline />
             </Grid>
             <Grid item>
-              <DialogContentText
-                startIcon={<HelpOutline />}
-                id="alert-dialog-description"
-              >
+              <DialogContentText id="alert-dialog-description">
                 Update Company successfully!!
               </DialogContentText>
             </Grid>

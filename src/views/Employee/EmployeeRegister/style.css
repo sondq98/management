@@ -1,0 +1,7 @@
+.form-row {
+  height: 50px;
+}
+
+.form-row.h-100 {
+  height: 100px !important;
+}
