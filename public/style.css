@@ -1,3 +1,9 @@
+
+label {
+    font-size: 13px;
+    font-weight: bold;
+    margin-block-end: 0;
+}
 /* .App {
     border-left: 1px solid #000;
     border-right: 1px solid #000;
@@ -12,5 +18,12 @@
 .btn-30 {
     width: 90px !important;
     height: 30px !important;
+}
+
+
+.br {
+    width: 97%;
+    margin: 0px auto 0px;
+    border-bottom: 1px solid #ACABAB;
 }
 

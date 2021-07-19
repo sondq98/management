@@ -1,12 +1,10 @@
-import MainHeader from "../../components/MainHeader";
-import "./style.css";
-import StyledInput from "../../components/TextField";
-import StyledButton from "../../components/Button";
+import { useHistory } from "react-router-dom";
+import Button from '@material-ui/core/Button';
+import InputLabel from "@material-ui/core/InputLabel";
+import Grid from "@material-ui/core/Grid";
+import Pagination from "@material-ui/core/Pagination";
 import {
-    Pagination,
     Table,
-    Grid,
-    InputLabel,
     MenuItem,
     Select,
     TableContainer,
@@ -15,7 +13,13 @@ import {
     TableRow,
     TableBody,
 } from "@material-ui/core";
-import { useHistory } from "react-router-dom";
+
+import MainHeader from "../../components/MainHeader";
+import StyledInput from "../../components/TextField";
+import StyledButton from "../../components/Button";
+
+import "./style.css";
+
 const CompanyManagement = function () {
     const route = useHistory();
     const goToDetailPage = () => {
@@ -25,10 +29,10 @@ const CompanyManagement = function () {
         <div className="container-div">
             <MainHeader />
             <div className="wrapper">
-                <div style={{ height: "345px" }}>
+                <div>
                     <h3 className="headerPanel">Branch Management</h3>
-                    <Grid container ml={3} mt={3} rowGap={1}>
-                        <Grid container item>
+                    <Grid container ml={3} mt={3} mb={3} rowGap={1}>
+                        <Grid container item mb={1}>
                             <Grid item xs={2} className="form-group">
                                 <label htmlFor="">Company</label>
                             </Grid>
@@ -46,7 +50,25 @@ const CompanyManagement = function () {
                                 />
                             </Grid>
                         </Grid>
-                        <Grid container item>
+                        <Grid container item mb={1}>
+                            <Grid item xs={2} className="form-group">
+                                <label htmlFor="">Branch</label>
+                            </Grid>
+                            <Grid item>
+                                <StyledInput
+                                    size="small"
+                                    style={{ marginRight: "20px", paddingLeft: "10px" }}
+                                    placeholder="Code"
+                                />
+                            </Grid>
+                            <Grid item>
+                                <StyledInput
+                                    size="medium"
+                                    placeholder="Please enter company name"
+                                />
+                            </Grid>
+                        </Grid>
+                        <Grid container item mb={1}>
                             <Grid item xs={2} className="form-group">
                                 <label htmlFor="">Email</label>
                             </Grid>
@@ -54,7 +76,7 @@ const CompanyManagement = function () {
                                 <StyledInput size="medium" placeholder="Email" />
                             </Grid>
                         </Grid>
-                        <Grid container item>
+                        <Grid container item mb={1}>
                             <Grid item xs={2} className="form-group">
                                 <label htmlFor="">Phone Number</label>
                             </Grid>
@@ -62,7 +84,7 @@ const CompanyManagement = function () {
                                 <StyledInput size="medium" placeholder="Phone number" />
                             </Grid>
                         </Grid>
-                        <Grid container item>
+                        <Grid container item mb={1}>
                             <Grid item xs={2} className="form-group">
                                 <label htmlFor="">Status</label>
                             </Grid>
@@ -87,15 +109,22 @@ const CompanyManagement = function () {
                         <StyledButton variant="contained" color="primary">
                             Search
                         </StyledButton>
-                        <StyledButton
+                        <Button
+                            variant="contained"
                             onClick={() => {
                                 route.goBack();
                             }}
-                            variant="contained"
-                            color="inherit"
+                            className="btn-30"
+                            sx={{
+                                bgcolor: '#323232',
+                                '&:hover': {
+                                    bgcolor: '#080808'
+                                }
+                            }}
                         >
                             Back
-                        </StyledButton>
+                        </Button>
+                        
                     </div>
                 </div>
                 <div className="table-wrapper">

@@ -9,17 +9,17 @@
     box-shadow: 0 3px 90px rgba(0, 0, 0, .16), 0 -5px 20px rgba(0, 0, 0, .16);
 }
 
-.infomationTab, .skillTab {
+.infomationTab, .skillTab, .certificationTab {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     width: 100%;
-    height: 650px;
+    min-height: 650px;
     border-radius: 6px;
     box-shadow: 0 3px 90px rgba(0, 0, 0, .16), 0 -5px 30px rgba(0, 0, 0, .09);
 }
 
-.skillTab-TableWrapper {
+.skillTab-TableWrapper,.certificationTab-TableWrapper {
     padding: 40px 20px;
 }
 

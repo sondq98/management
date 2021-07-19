@@ -7,8 +7,8 @@ import Box from '@material-ui/core/Box';
 
 import MainHeader from '../../../components/MainHeader';
 import InfomationTab from './InfomationTab';
-import SkillTab from './SkillTab';
-import CertificationTab from './CertificationTab';
+import SkillTab from './SkillTab/SkillTab';
+import CertificationTab from './CertificationTab/CertificationTab';
 import "./style.css"
 
 

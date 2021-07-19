@@ -4,11 +4,9 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import { Grid } from "@material-ui/core";
 import { PhotoCamera } from "@material-ui/icons";
-import { Input } from "@material-ui/core";
+import  Input from "@material-ui/core/Input";
 
-import StyledInput from '../../../components/InputCpn';
-
-import "./style.css"
+import StyledInput from '../../../../components/InputCpn';
 
 function InfomationTab() {
     let history = useHistory();
@@ -127,9 +125,9 @@ function InfomationTab() {
                             >
 
                                 <Grid item>
-                                    <div className="form-logo-preview">
+                                    {/* <div className="form-logo-preview"> */}
                                         <img src="/user.png" alt="" className="form-logo-preview" />
-                                    </div>
+                                    {/* </div> */}
                                 </Grid>
                                 <Grid item>
                                     <label htmlFor="contained-button-file">
