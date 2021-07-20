@@ -249,7 +249,7 @@ const ProjectManagement = function () {
                                     <TableCell>
                                         <StyledButton
                                             onClick={() => {
-                                                history.push("/employee/detail");
+                                                history.push("/project/detail");
                                             }}
                                             variant="contained"
                                             color="info"
@@ -274,7 +274,7 @@ const ProjectManagement = function () {
                                     <TableCell>
                                         <StyledButton
                                             onClick={() => {
-                                                history.push("/employee/detail");
+                                                history.push("/project/detail");
                                             }}
                                             variant="contained"
                                             color="info"
@@ -299,7 +299,7 @@ const ProjectManagement = function () {
                                     <TableCell>
                                         <StyledButton
                                             onClick={() => {
-                                                history.push("/employee/detail");
+                                                history.push("/project/detail");
                                             }}
                                             variant="contained"
                                             color="info"
@@ -324,7 +324,7 @@ const ProjectManagement = function () {
                                     <TableCell>
                                         <StyledButton
                                             onClick={() => {
-                                                history.push("/employee/detail");
+                                                history.push("/project/detail");
                                             }}
                                             variant="contained"
                                             color="info"

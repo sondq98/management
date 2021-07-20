@@ -5,8 +5,10 @@ function StyledInput(props) {
     <Input
       color="primary"
       sx={{
+        alignItems: props.alignItems ? props.alignItems : "center",
         border: "2px solid #72ACFF",
-        height: "40px",
+        height: 
+          props.height ? props.height : "40px",
         paddingLeft: "8px",
         borderRadius: "8px",
         width:
@@ -14,7 +16,7 @@ function StyledInput(props) {
             ? "110px"
             : props.size === "medium"
             ? "250px"
-            : "400px",
+            : "370px",
         "&:focus": {
           boxShadow: "0 0 3px 2px #72ACFF",
         },
