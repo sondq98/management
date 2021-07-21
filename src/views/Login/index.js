@@ -17,7 +17,6 @@ const MyTextInput = ({ label, ...props }) => {
                 {...field}
                 {...props}
             />
-
             <div className="authen-FormGroupNoti">
                 {meta.touched && meta.error ? (
                     <span className="errorNoti">{meta.error}</span>
@@ -27,35 +26,8 @@ const MyTextInput = ({ label, ...props }) => {
     )
 }
 
-const validateRules = {
-    required: function (inputValue) {
-        return inputValue ? undefined : 'Vui lòng nhập trường này';
-    },
-    email: function (inputValue) {
-        var mailFormat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
-        return mailFormat.test(inputValue) ? undefined : 'Địa chỉ email không hợp lệ!';
-    },
-    min: function (min) {
-        return function (inputValue) {
-            return inputValue.length >= min ? undefined : `Độ dài tối thiểu ${min} kí tự!`;
-        }
-    },
-    max: function (max) {
-        return function (inputValue) {
-            return inputValue.length <= max ? undefined : `Độ dài tối đa ${max} kí tự!`;
-        }
-    },
-}
-
 function Login() {
     let history = useHistory();
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-
-    function validateLogin() {
-
-    }
-
     function handleClickLogin() {
         history.push("/home");
     }
@@ -97,16 +69,15 @@ function Login() {
                             handleChange,
                             handleBlur,
                             handleSubmit,
-                            handleReset
                         } = props;
                         return (
-                            <form action="" className="loginForm">
+                            <form action="" className="loginForm" onSubmit={handleSubmit}>
                                 <h1 className="loginForm-Header">Login</h1>
                                 <div className="loginForm-Main">
 
 
                                     <MyTextInput
-                                        label="Email Address"
+                                        label="Email"
                                         name="email"
                                         type="email"
                                         placeholder="Please enter email"
@@ -140,7 +111,7 @@ function Login() {
                                         alignItems="center"
                                         spacing={0}
                                     >
-                                        <Button variant="contained" onClick={handleClickLogin} className="btn-40" color="success">Login</Button>
+                                        <Button variant="contained" type="submit" className="btn-40" color="success">Login</Button>
                                         <Button variant="contained" onClick={handleClickSignup} className="btn-40">Sign up</Button>
                                     </Stack>
                                 </div>
@@ -152,68 +123,6 @@ function Login() {
                         );
                     }}
                 </Formik>
-                {/* <Formik
-                    initialValues={{ email: "" }}
-                    onSubmit={async values => {
-                        await new Promise(resolve => setTimeout(resolve, 500));
-                        alert(JSON.stringify(values, null, 2));
-                    }}
-                    validationSchema={Yup.object().shape({
-                        email: Yup.string()
-                            .email()
-                            .required("Required")
-                    })}
-                >
-                    {props => {
-                        const {
-                            values,
-                            touched,
-                            errors,
-                            dirty,
-                            isSubmitting,
-                            handleChange,
-                            handleBlur,
-                            handleSubmit,
-                            handleReset
-                        } = props;
-                        return (
-                            <form onSubmit={handleSubmit}>
-                                <label htmlFor="email" style={{ display: "block" }}>
-                                    Email
-                                </label>
-                                <input
-                                    id="email"
-                                    placeholder="Enter your email"
-                                    type="text"
-                                    value={values.email}
-                                    onChange={handleChange}
-                                    onBlur={handleBlur}
-                                    className={
-                                        errors.email && touched.email
-                                            ? "text-input error"
-                                            : "text-input"
-                                    }
-                                />
-                                {errors.email && touched.email && (
-                                    <div className="input-feedback">{errors.email}</div>
-                                )}
-
-                                <button
-                                    type="button"
-                                    className="outline"
-                                    onClick={handleReset}
-                                    disabled={!dirty || isSubmitting}
-                                >
-                                    Reset
-                                </button>
-                                <button type="submit" disabled={isSubmitting}>
-                                    Submit
-                                </button>
-
-                            </form>
-                        );
-                    }}
-                </Formik> */}
             </div>
         </div>
     )
