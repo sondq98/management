@@ -1,19 +1,27 @@
 import { useHistory } from "react-router-dom";
+import { connect } from "react-redux";
 import * as React from 'react';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import { Grid } from "@material-ui/core";
 import { PhotoCamera } from "@material-ui/icons";
-import  Input from "@material-ui/core/Input";
+import Input from "@material-ui/core/Input";
 
 import StyledInput from '../../../components/InputCpn';
+import { getUserData } from "../../../store/profile/action";
 
-function InfomationTab() {
+function InfomationTab(props) {
     let history = useHistory();
-
     const handleClickBack = () => {
         history.push("/profile");
     }
+    const { profileReducer, dispatch } = props;
+    const { userData } = profileReducer;
+
+    React.useEffect(() => {
+        dispatch(getUserData())
+    })
+
     return (
         <div className="infomationTab">
             <div className="mainPanel">
@@ -126,7 +134,7 @@ function InfomationTab() {
 
                                 <Grid item>
                                     {/* <div className="form-logo-preview"> */}
-                                        <img src="/user.png" alt="" className="form-logo-preview" />
+                                    <img src="/user.png" alt="" className="form-logo-preview" />
                                     {/* </div> */}
                                 </Grid>
                                 <Grid item>
@@ -236,4 +244,10 @@ function InfomationTab() {
     )
 }
 
-export default InfomationTab;
+const mapStateToProps = (state) => {
+    return { ...state };
+};
+const mapDispatchToProps = (dispatch) => {
+    return { dispatch };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(InfomationTab);

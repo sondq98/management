@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { connect } from "react-redux";
+
 import { useHistory } from "react-router-dom";
 import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
@@ -239,4 +241,10 @@ function SkillTab() {
     )
 }
 
-export default SkillTab;
+const mapStateToProps = (state) => {
+    return { ...state };
+};
+const mapDispatchToProps = (dispatch) => {
+    return { dispatch };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(SkillTab);

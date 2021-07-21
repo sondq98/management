@@ -14,7 +14,7 @@ import Signup from "./views/Signup";
 import Home from "./views/Home";
 import Profile from "./views/Profile";
 import ProfileDetail from "./views/Profile/ProfileDetail";
-import Branch from "./views/Branch/BranchManagement";
+import Branch from "./views/Branch/";
 import BranchRegister from "./views/Branch/BranchRegister";
 import BranchDetail from "./views/Branch/BranchDetail";
 import Project from "./views/Project/ProjectManagement";

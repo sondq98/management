@@ -19,11 +19,70 @@ import StyledInput from "../../components/TextField";
 import StyledButton from "../../components/Button";
 
 
-const BranchManagement = function () {
+import { useEffect } from "react";
+import { useState } from "react";
+import StyledSelect from "../../components/Select";
+import { connect } from "react-redux";
+import {
+    deleteCompany,
+    getDataWithFilter,
+    getSearchedData,
+} from "../../store/company/action";
+import { useRef } from "react";
+
+const BranchManagement = function (props) {
     const history = useHistory();
-    const goToDetailPage = () => {
-        history.push("/branch/detail");
+    // const goToDetailPage = () => {
+    //     history.push("/branch/detail");
+    // };
+
+    const delayTrigger = useRef();
+    const handleDeleteClick = (code) => {
+        dispatch(deleteCompany(code));
+        setFilter({ ...filter, max: filter.max - 1 });
     };
+    const { companyReducer, dispatch } = props;
+    const route = useHistory();
+    const [filter, setFilter] = useState({ ...companyReducer.filter });
+    const goToDetailPage = (code) => {
+        route.push("/company/detail/" + code);
+    };
+    const { tableData } = companyReducer;
+    const [formFilter, setFormFilter] = useState({});
+    const handleChangeRowPerPage = (e) => {
+        let value = e.target.value;
+        let newFilter = { ...filter };
+        newFilter.row = value;
+        newFilter.currentPage = 1;
+        setFilter(newFilter);
+    };
+    const handleChangePage = (e) => {
+        let value = e;
+        let newFilter = { ...filter, currentPage: value };
+        setFilter(newFilter);
+    };
+
+    const handleChangeSearchFrom = (e, ...arg) => {
+        if (delayTrigger.current) {
+            clearInterval(delayTrigger.current);
+        }
+
+        let value = arg.length === 0 ? e.target.value : arg[0];
+        let name = arg.length === 0 ? e.target.name : e;
+        let newFormFilter = { ...formFilter };
+        newFormFilter[name] = value;
+        delayTrigger.current = setInterval(() => {
+            setFormFilter(newFormFilter);
+        }, 400);
+    };
+
+    const handleClickSearch = () => {
+        dispatch(getSearchedData(formFilter));
+    };
+    useEffect(() => {
+        dispatch(getDataWithFilter(filter));
+    }, [filter]);
+
     return (
         <div className="container-div">
             <MainHeader />
@@ -310,4 +369,10 @@ const BranchManagement = function () {
     );
 };
 
-export default BranchManagement;
+const mapStateToProps = (state) => {
+    return { ...state };
+};
+const mapDispatchToProps = (dispatch) => {
+    return { dispatch };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(BranchManagement);

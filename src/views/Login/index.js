@@ -3,9 +3,9 @@ import { useHistory } from "react-router-dom";
 import { Formik, Form, useField } from 'formik';
 import Stack from '@material-ui/core/Stack';
 import Button from '@material-ui/core/Button';
-import AuthenHeader from '../../components/AuthenHeader';
 import * as Yup from 'yup';
 
+import AuthenHeader from '../../components/AuthenHeader';
 import './style.css'
 
 const MyTextInput = ({ label, ...props }) => {
@@ -28,9 +28,6 @@ const MyTextInput = ({ label, ...props }) => {
 
 function Login() {
     let history = useHistory();
-    function handleClickLogin() {
-        history.push("/home");
-    }
     function handleClickSignup() {
         history.push("/signup");
     }
@@ -50,7 +47,6 @@ function Login() {
                         password: Yup.string()
                             .min(8, 'Password is too short - should be 8 chars minimum.')
                             .required('Required'),
-
                     })}
                     onSubmit={(values, { setSubmitting }) => {
                         setTimeout(() => {

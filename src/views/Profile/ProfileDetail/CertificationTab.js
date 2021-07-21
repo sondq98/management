@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { connect } from "react-redux";
 import { useHistory } from "react-router-dom";
 import Button from '@material-ui/core/Button';
 import {
@@ -232,4 +233,10 @@ function CertificationTab() {
     )
 }
 
-export default CertificationTab;
+const mapStateToProps = (state) => {
+    return { ...state };
+};
+const mapDispatchToProps = (dispatch) => {
+    return { dispatch };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(CertificationTab);
