@@ -35,11 +35,6 @@ li {
     background-color: transparent;
 }
 
-li:hover {
-    transform: none;
-    background-color: rgba(0, 0, 0, 0.2);
-}
-
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
@@ -65,4 +60,3 @@ code {
     margin: 0px auto 0px;
     border-bottom: 1px solid #ACABAB;
 }
-

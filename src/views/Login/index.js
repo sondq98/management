@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useHistory } from "react-router-dom";
-import { Formik, Form, useField } from 'formik';
+import { Formik, useField } from 'formik';
 import Stack from '@material-ui/core/Stack';
 import Button from '@material-ui/core/Button';
 import * as Yup from 'yup';
@@ -60,8 +60,6 @@ function Login() {
                             values,
                             touched,
                             errors,
-                            dirty,
-                            isSubmitting,
                             handleChange,
                             handleBlur,
                             handleSubmit,

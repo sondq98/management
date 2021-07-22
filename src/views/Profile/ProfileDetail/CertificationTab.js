@@ -120,9 +120,9 @@ function CertificationTable() {
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {rowsCertification.map((row) => (
+                    {rowsCertification.map((row, idx) => (
                         <TableRow
-                            key={row.stt}
+                            key={idx}
                         >
                             <TableCell align="center" padding="none">{row.stt}</TableCell>
                             <TableCell align="center" padding="none">{row.certificate}</TableCell>

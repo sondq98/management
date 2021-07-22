@@ -84,10 +84,10 @@ export default function MainHeader() {
       </div>
       <div className="nav">
         <div className="navItem">
-          <p onClick={handleClickHome}>HOME</p>
+          <div onClick={handleClickHome}>HOME</div>
         </div>
         <div className="navItem">
-          <p>ABOUT</p>
+          <div>ABOUT</div>
         </div>
         <div className="navItem">
           <div className="user">

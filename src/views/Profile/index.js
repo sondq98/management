@@ -1,9 +1,9 @@
 import React from 'react';
 import { useHistory } from "react-router-dom";
-import { connect } from "react-redux";
+import { connect, useSelector } from "react-redux";
 import Button from '@material-ui/core/Button';
 
-import { getUserData } from "../../store/profile/action";
+import { getUserData, getUserInfomation } from "../../store/profile/action";
 import MainHeader from '../../components/MainHeader';
 
 import "./style.css"
@@ -16,14 +16,9 @@ const Profile = (props) => {
     const handleClickBack = () => {
         history.push("/home");
     }
-    console.log(props);
-    const { profileReducer, dispatch } = props;
-    const { userData } = profileReducer;
     
-    React.useEffect(() => {
-        console.log(props);
-        dispatch(getUserData())
-    }, [])
+    const {userData} = props.profileReducer;
+
     return (
         <div className="Profile">
             <MainHeader></MainHeader>
@@ -31,9 +26,9 @@ const Profile = (props) => {
                 <div className="left">
                     <div className="userImg">
                         <div className="Img">
-                            <img src={userData.img} alt="user" />
+                            <img src={userData.infomation.img} alt="user" />
                         </div>
-                        <div className="userName">{userData.fullName}</div>
+                        <div className="userName">{userData.infomation.fullName}</div>
                     </div>
                 </div>
                 <div className="right">
@@ -43,52 +38,52 @@ const Profile = (props) => {
                     <div className="bodyPanel">
                         <ul className="listInfo">
                             <li className="info">
-                                <p className="infoTitle">Full name</p>
-                                <p className="infoContent">{userData.fullName}</p>
+                                <div className="infoTitle">Full name</div>
+                                <div className="infoContent">{userData.infomation.fullName}</div>
                             </li>
                             <li className="info">
-                                <p className="infoTitle">Birth Day </p>
-                                <p className="infoContent">{userData.birthDay}</p>
+                                <div className="infoTitle">Birth Day </div>
+                                <div className="infoContent">{userData.infomation.birthDay}</div>
                             </li>
                             <li className="info">
-                                <p className="infoTitle">Email</p>
-                                <p className="infoContent">{userData.email}</p>
+                                <div className="infoTitle">Email</div>
+                                <div className="infoContent">{userData.infomation.email}</div>
                             </li>
                             <li className="info">
-                                <p className="infoTitle">Work Email</p>
-                                <p className="infoContent">{userData.workEmail}</p>
+                                <div className="infoTitle">Work Email</div>
+                                <div className="infoContent">{userData.infomation.workEmail}</div>
                             </li>
                             <li className="info">
-                                <p className="infoTitle">Phone number</p>
-                                <p className="infoContent">{userData.phoneNumber}</p>
+                                <div className="infoTitle">Phone number</div>
+                                <div className="infoContent">{userData.infomation.phoneNumber}</div>
                             </li>
                             <li className="info">
-                                <p className="infoTitle">Address</p>
-                                <p className="infoContent">{userData.address}</p>
+                                <div className="infoTitle">Address</div>
+                                <div className="infoContent">{userData.infomation.address}</div>
                             </li>
                             <li className="info">
-                                <p className="infoTitle">Join Date</p>
-                                <p className="infoContent">{userData.joinDate}</p>
+                                <div className="infoTitle">Join Date</div>
+                                <div className="infoContent">{userData.infomation.joinDate}</div>
                             </li>
                             <li className="info">
-                                <p className="infoTitle">Company</p>
-                                <p className="infoContent">{userData.company}</p>
+                                <div className="infoTitle">Company</div>
+                                <div className="infoContent">{userData.infomation.company}</div>
                             </li>
                             <li className="info">
-                                <p className="infoTitle">Branch</p>
-                                <p className="infoContent">{userData.branch}</p>
+                                <div className="infoTitle">Branch</div>
+                                <div className="infoContent">{userData.infomation.branch}</div>
                             </li>
                             <li className="info">
-                                <p className="infoTitle">Division</p>
-                                <p className="infoContent">{userData.division}</p>
+                                <div className="infoTitle">Division</div>
+                                <div className="infoContent">{userData.infomation.division}</div>
                             </li>
                             <li className="info">
-                                <p className="infoTitle">Role</p>
-                                <p className="infoContent">{userData.role}</p>
+                                <div className="infoTitle">Role</div>
+                                <div className="infoContent">{userData.infomation.role}</div>
                             </li>
                             <li className="info">
-                                <p className="infoTitle">Postion</p>
-                                <p className="infoContent">{userData.position}</p>
+                                <div className="infoTitle">Postion</div>
+                                <div className="infoContent">{userData.infomation.position}</div>
                             </li>
                         </ul>
                     </div>
@@ -128,6 +123,8 @@ const mapStateToProps = (state) => {
     return { profileReducer: state.profileReducer };
 };
 const mapDispatchToProps = (dispatch) => {
-    return { dispatch };
+    return {
+        dispatch
+    };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Profile);

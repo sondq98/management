@@ -1,6 +1,6 @@
 import { useHistory } from "react-router-dom";
 import { connect } from "react-redux";
-import * as React from 'react';
+import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import { Grid } from "@material-ui/core";
@@ -8,20 +8,43 @@ import { PhotoCamera } from "@material-ui/icons";
 import Input from "@material-ui/core/Input";
 
 import StyledInput from '../../../components/InputCpn';
-import { getUserData } from "../../../store/profile/action";
+import { getUserData, getUserInfomation } from "../../../store/profile/action";
+
+
+const MyTextInput = ({ ...props }) => {
+    return (
+        <input
+            {...props}
+            className="authenFormInput"
+            style={{
+                width: props.size === "small" ? "110px"
+                    : props.size === "medium" ? "250px"
+                        : "330px",
+                paddingLeft: "10px",
+                marginRight: "20px"
+            }}
+        />
+    )
+}
+
 
 function InfomationTab(props) {
     let history = useHistory();
     const handleClickBack = () => {
         history.push("/profile");
     }
-    const { profileReducer, dispatch } = props;
-    const { userData } = profileReducer;
+    const { userData } = props.profileReducer;
+    const [userInfomation, setUserInfomation] = React.useState(userData.infomation)
 
-    React.useEffect(() => {
-        dispatch(getUserData())
-    })
+    const onChangeInput = (e) => {
+        let field = e.target.name ? e.target.name : '';
+        let newUserInfomation = { ...userInfomation }
+        newUserInfomation[field] = e.target.value
+        setUserInfomation(newUserInfomation)
+    }
 
+    const onClickUpdate = (e) => {
+    }
     return (
         <div className="infomationTab">
             <div className="mainPanel">
@@ -32,14 +55,15 @@ function InfomationTab(props) {
                                 <label htmlFor="">Company</label>
                             </Grid>
                             <Grid container item xs={9}>
-                                <StyledInput
+                                <MyTextInput
                                     size="small"
-                                    style={{ marginRight: "20px", paddingLeft: "10px" }}
                                     placeholder="Code"
+                                    disabled
                                 />
-                                <StyledInput
+                                <MyTextInput
                                     size="medium"
-                                    placeholder="Please enter company name"
+                                    placeholder={userInfomation.company}
+                                    disabled
                                 />
                             </Grid>
                         </Grid>
@@ -48,14 +72,15 @@ function InfomationTab(props) {
                                 <label htmlFor="">Branch</label>
                             </Grid>
                             <Grid container item xs={9}>
-                                <StyledInput
+                                <MyTextInput
                                     size="small"
-                                    style={{ marginRight: "20px", paddingLeft: "10px" }}
                                     placeholder="Code"
+                                    disabled
                                 />
-                                <StyledInput
+                                <MyTextInput
                                     size="medium"
-                                    placeholder="Please enter company name"
+                                    placeholder={userInfomation.branch}
+                                    disabled
                                 />
                             </Grid>
                         </Grid>
@@ -64,13 +89,15 @@ function InfomationTab(props) {
                                 <label htmlFor="">Division</label>
                             </Grid>
                             <Grid container item xs={9}>
-                                <StyledInput
+                                <MyTextInput
                                     size="small"
-                                    style={{ marginRight: "20px", paddingLeft: "10px" }}
                                     placeholder="Code"
-                                /><StyledInput
+                                    disabled
+                                />
+                                <MyTextInput
                                     size="medium"
-                                    placeholder="Please enter company name"
+                                    placeholder={userInfomation.division}
+                                    disabled
                                 />
                             </Grid>
                         </Grid>
@@ -79,13 +106,15 @@ function InfomationTab(props) {
                                 <label htmlFor="">Employee</label>
                             </Grid>
                             <Grid container item xs={9}>
-                                <StyledInput
+                                <MyTextInput
                                     size="small"
-                                    style={{ marginRight: "20px", paddingLeft: "10px" }}
-                                    placeholder="Code"
-                                /><StyledInput
+                                    placeholder={userInfomation.id}
+                                    disabled
+                                />
+                                <MyTextInput
                                     size="medium"
-                                    placeholder="Please enter company name"
+                                    placeholder={userInfomation.fullName}
+                                    disabled
                                 />
                             </Grid>
                         </Grid>
@@ -94,7 +123,11 @@ function InfomationTab(props) {
                                 <label htmlFor="">Work email</label>
                             </Grid>
                             <Grid item>
-                                <StyledInput size="medium" placeholder="Email" />
+                                <MyTextInput
+                                    size="medium"
+                                    placeholder={userInfomation.workEmail}
+                                    disabled
+                                />
                             </Grid>
                         </Grid>
                         <Grid container item mb={2}>
@@ -102,7 +135,12 @@ function InfomationTab(props) {
                                 <label htmlFor="">Join Date</label>
                             </Grid>
                             <Grid item>
-                                <StyledInput size="medium" placeholder="Phone number" />
+                                <MyTextInput
+                                    size="medium"
+                                    type="date"
+                                    value={userInfomation.joinDate}
+                                    disabled
+                                />
                             </Grid>
                         </Grid>
                         <Grid container item mb={2}>
@@ -110,7 +148,12 @@ function InfomationTab(props) {
                                 <label htmlFor="">Experience</label>
                             </Grid>
                             <Grid item>
-                                <StyledInput size="medium" placeholder="Status" />
+                                <MyTextInput
+                                    size="medium"
+                                    type="text"
+                                    value={userInfomation.experience}
+                                    disabled
+                                />
                             </Grid>
                         </Grid>
                         <Grid container item mb={2}>
@@ -118,7 +161,12 @@ function InfomationTab(props) {
                                 <label htmlFor="">Type of Contact</label>
                             </Grid>
                             <Grid item>
-                                <StyledInput size="medium" placeholder="Status" />
+                                <MyTextInput
+                                    size="medium"
+                                    type="text"
+                                    value={userInfomation.contract}
+                                    disabled
+                                />
                             </Grid>
                         </Grid>
                     </Grid>
@@ -133,9 +181,7 @@ function InfomationTab(props) {
                             >
 
                                 <Grid item>
-                                    {/* <div className="form-logo-preview"> */}
                                     <img src="/user.png" alt="" className="form-logo-preview" />
-                                    {/* </div> */}
                                 </Grid>
                                 <Grid item>
                                     <label htmlFor="contained-button-file">
@@ -163,7 +209,11 @@ function InfomationTab(props) {
                                 <label htmlFor="">Address</label>
                             </Grid>
                             <Grid item>
-                                <StyledInput size="large" placeholder="Address" />
+                                <MyTextInput
+                                    name="address"
+                                    value={userInfomation.address}
+                                    placeholder="Address"
+                                    onChange={onChangeInput} />
                             </Grid>
                         </Grid>
                         <Grid container item mb={2}>
@@ -171,7 +221,7 @@ function InfomationTab(props) {
                                 <label htmlFor="">Phone number</label>
                             </Grid>
                             <Grid item>
-                                <StyledInput size="medium" placeholder="Phone number" />
+                                <MyTextInput size="medium" placeholder="Phone number" value={userInfomation.phoneNumber} onChange={onChangeInput} />
                             </Grid>
                         </Grid>
                         <Grid container item mb={2}>
@@ -179,7 +229,7 @@ function InfomationTab(props) {
                                 <label htmlFor="">Date of Birth</label>
                             </Grid>
                             <Grid item>
-                                <StyledInput size="medium" placeholder="Date of Birth" />
+                                <MyTextInput size="medium" placeholder="Date of Birth" value={userInfomation.birthDay} onChange={onChangeInput} />
                             </Grid>
                         </Grid>
                         <Grid container item mb={2}>
@@ -187,7 +237,7 @@ function InfomationTab(props) {
                                 <label htmlFor="">Email</label>
                             </Grid>
                             <Grid item>
-                                <StyledInput size="medium" placeholder="Email" />
+                                <MyTextInput size="medium" placeholder="Email" value={userInfomation.email} onChange={onChangeInput} />
                             </Grid>
                         </Grid>
                         <Grid container item mb={2}>
@@ -195,7 +245,7 @@ function InfomationTab(props) {
                                 <label htmlFor="">ID/Passport No</label>
                             </Grid>
                             <Grid item>
-                                <StyledInput size="medium" placeholder="Number" />
+                                <MyTextInput size="medium" placeholder="Number" value={userInfomation.idCode} onChange={onChangeInput} />
                             </Grid>
                         </Grid>
                         <Grid container item mb={2}>
@@ -203,7 +253,7 @@ function InfomationTab(props) {
                                 <label htmlFor="">ID/Passport Date</label>
                             </Grid>
                             <Grid item>
-                                <StyledInput size="medium" placeholder="Number" />
+                                <MyTextInput size="medium" placeholder="Number" value={userInfomation.idDate} onChange={onChangeInput} />
                             </Grid>
                         </Grid>
                     </Grid>
@@ -245,7 +295,9 @@ function InfomationTab(props) {
 }
 
 const mapStateToProps = (state) => {
-    return { ...state };
+    return {
+        profileReducer: state.profileReducer
+    };
 };
 const mapDispatchToProps = (dispatch) => {
     return { dispatch };

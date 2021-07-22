@@ -81,23 +81,31 @@ function createSkillData(skillType, skillName, skillNote, experiences, noteExper
 function createSkillUpdateData(skillType, skillName, skillNote, experiences, noteExperiences, level, button) {
     return { skillType, skillName, skillNote, experiences, noteExperiences, level, button };
 }
-const rowsSkill = [
-    createSkillData('Programing languages', 'Java', '', '3 Months', '', 'Level 3'),
-    createSkillData('Framework', 'VueJs', '', '3 Months', '', 'Level 3'),
-    createSkillData('', '', '', '', '', ''),
-    createSkillData('', '', '', '', '', ''),
-    createSkillData('', '', '', '', '', ''),
-    createSkillData('', '', '', '', '', ''),
-];
-const rowsSkillUpdate = [
-    createSkillUpdateData('Programing languages', 'Java', '', '3 Months', '', 'Level 3', 'Delete'),
-    createSkillUpdateData('Framework', 'VueJs', '', '3 Months', '', 'Level 3', 'Delete'),
-    createSkillUpdateData('', '', '', '', '', '', 'Add'),
-    createSkillUpdateData('', '', '', '', '', '', ''),
-    createSkillUpdateData('', '', '', '', '', '', ''),
-    createSkillUpdateData('', '', '', '', '', '', ''),
-];
-function SkillTable() {
+const rowsSkill = (props) => {
+    return (
+        [
+            createSkillData('Programing languages', 'Java', '', '3 Months', '', 'Level 3'),
+            createSkillData('Framework', 'VueJs', '', '3 Months', '', 'Level 3'),
+            createSkillData('', '', '', '', '', ''),
+            createSkillData('', '', '', '', '', ''),
+            createSkillData('', '', '', '', '', ''),
+            createSkillData('', '', '', '', '', ''),
+        ]
+    )
+}
+const rowsSkillUpdate = (props) => {
+    return (
+        [
+            createSkillUpdateData('Programing languages', 'Java', '', '3 Months', '', 'Level 3', 'Delete'),
+            createSkillUpdateData('Framework', 'VueJs', '', '3 Months', '', 'Level 3', 'Delete'),
+            createSkillUpdateData('', '', '', '', '', '', 'Add'),
+            createSkillUpdateData('', '', '', '', '', '', ''),
+            createSkillUpdateData('', '', '', '', '', '', ''),
+            createSkillUpdateData('', '', '', '', '', '', ''),
+        ]
+    );
+};
+function SkillTable(props) {
     return (
         <TableContainer
             component={Paper}
@@ -117,18 +125,18 @@ function SkillTable() {
                     }}
                 >
                     <TableRow>
-                        <TableCell align="center" sx={{fontWeight : 'bold'}}>Skill type</TableCell>
-                        <TableCell align="center" sx={{fontWeight : 'bold'}}>Skill name</TableCell>
-                        <TableCell align="center" sx={{fontWeight : 'bold'}}>Skill note</TableCell>
-                        <TableCell align="center" sx={{fontWeight : 'bold'}}>Experiences</TableCell>
-                        <TableCell align="center" sx={{fontWeight : 'bold'}}>Note experiences</TableCell>
-                        <TableCell align="center" sx={{fontWeight : 'bold'}}>Level</TableCell>
+                        <TableCell align="center" sx={{ fontWeight: 'bold' }}>Skill type</TableCell>
+                        <TableCell align="center" sx={{ fontWeight: 'bold' }}>Skill name</TableCell>
+                        <TableCell align="center" sx={{ fontWeight: 'bold' }}>Skill note</TableCell>
+                        <TableCell align="center" sx={{ fontWeight: 'bold' }}>Experiences</TableCell>
+                        <TableCell align="center" sx={{ fontWeight: 'bold' }}>Note experiences</TableCell>
+                        <TableCell align="center" sx={{ fontWeight: 'bold' }}>Level</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {rowsSkill.map((row) => (
+                    {rowsSkill().map((row, idx) => (
                         <TableRow
-                            key={row.skillName}
+                            key={idx}
                         >
                             <TableCell align="center" padding="none">{row.skillType}</TableCell>
                             <TableCell align="center" padding="none">{row.skillName}</TableCell>
@@ -143,7 +151,7 @@ function SkillTable() {
         </TableContainer>
     )
 }
-function SkillTableUpdate() {
+function SkillTableUpdate(props) {
     return (
         <TableContainer sx={{
             borderRadius: '6px',
@@ -159,20 +167,18 @@ function SkillTableUpdate() {
                     }}
                 >
                     <TableRow>
-                        <TableCell align="center" sx={{fontWeight : 'bold'}}>Skill type</TableCell>
-                        <TableCell align="center" sx={{fontWeight : 'bold'}}>Skill name</TableCell>
-                        <TableCell align="center" sx={{fontWeight : 'bold'}}>Skill note</TableCell>
-                        <TableCell align="center" sx={{fontWeight : 'bold'}}>Experiences</TableCell>
-                        <TableCell align="center" sx={{fontWeight : 'bold'}}>Note experiences</TableCell>
-                        <TableCell align="center" sx={{fontWeight : 'bold'}}>Level</TableCell>
+                        <TableCell align="center" sx={{ fontWeight: 'bold' }}>Skill type</TableCell>
+                        <TableCell align="center" sx={{ fontWeight: 'bold' }}>Skill name</TableCell>
+                        <TableCell align="center" sx={{ fontWeight: 'bold' }}>Skill note</TableCell>
+                        <TableCell align="center" sx={{ fontWeight: 'bold' }}>Experiences</TableCell>
+                        <TableCell align="center" sx={{ fontWeight: 'bold' }}>Note experiences</TableCell>
+                        <TableCell align="center" sx={{ fontWeight: 'bold' }}>Level</TableCell>
                         <TableCell align="center"></TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {rowsSkillUpdate.map((row) => (
-                        <TableRow
-                            key={row.skillName}
-                        >
+                    {rowsSkillUpdate().map((row, idx) => (
+                        <TableRow key={row.id}>
                             <TableCell align="center" padding="none">{row.skillType}</TableCell>
                             <TableCell align="center" padding="none">{row.skillName}</TableCell>
                             <TableCell align="center" padding="none">{row.skillNote}</TableCell>
@@ -193,27 +199,35 @@ function SkillTableUpdate() {
 }
 
 
-function SkillTab() {
+function SkillTab(props) {
     let history = useHistory();
     const handleClickBack = () => {
         history.push("/profile");
     }
     const [show, setShow] = useState({ showUpdateTable: false, showConfirmBtn: false });
-
     const onClickUpdateButton = () => {
         setShow({
             showUpdateTable: !show.showUpdateTable,
             showConfirmBtn: !show.showConfirmBtn
         });
     };
+
+    const { userData } = props.profileReducer;
+    const [userSkill, setUserSkill] = React.useState(userData.skill)
+    console.log(userSkill);
+
+    const nowTableData = userSkill.skillList;
+    console.log(nowTableData);
+
     return (
         <div className="skillTab">
             <div className="skillTab-TableWrapper">
                 {show.showUpdateTable ? <SkillTableUpdate /> : <SkillTable />}
                 <div className="skillTab-LastUpdateTime">
                     <span className="timeUpdate-label">Last update</span>
-                    <span className="timeUpdate">2020-01-01 09:00:00</span>
+                    <span className="timeUpdate">{userSkill.skillLastUpdate}</span>
                 </div>
+
             </div>
             <div>
                 <div className="br"></div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useHistory } from "react-router-dom";
-import { Formik, Form, useField } from 'formik';
+import { Formik, useField } from 'formik';
 import Stack from '@material-ui/core/Stack';
 import Button from '@material-ui/core/Button';
 import * as Yup from 'yup';
@@ -84,12 +84,8 @@ function Signup() {
                             values,
                             touched,
                             errors,
-                            dirty,
-                            isSubmitting,
                             handleChange,
                             handleBlur,
-                            handleSubmit,
-                            handleReset
                         } = props;
                         return (
                             <form action="" className="signupForm">

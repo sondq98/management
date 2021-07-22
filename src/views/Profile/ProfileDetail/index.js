@@ -25,7 +25,7 @@ function TabPanel(props) {
         >
             {value === index && (
                 <Box sx={{ p: 3 }}>
-                    <Typography>{children}</Typography>
+                    {children}
                 </Box>
             )}
         </div>
@@ -64,7 +64,7 @@ function Profile() {
                         <Box sx={{ borderBottom: 0, borderColor: 'divider' }}>
                             <Tabs
                                 value={value}
-                                indicatorColor="none"
+                                indicatorColor="primary"
                                 onChange={handleChange}
                                 aria-label="basic tabs example">
                                 <Tab label="Infomation" {...a11yProps(0)} />
