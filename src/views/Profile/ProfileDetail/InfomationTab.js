@@ -7,10 +7,6 @@ import { Grid } from "@material-ui/core";
 import { PhotoCamera } from "@material-ui/icons";
 import Input from "@material-ui/core/Input";
 
-import StyledInput from '../../../components/InputCpn';
-import { getUserData, getUserInfomation } from "../../../store/profile/action";
-
-
 const MyTextInput = ({ ...props }) => {
     return (
         <input
@@ -43,8 +39,6 @@ function InfomationTab(props) {
         setUserInfomation(newUserInfomation)
     }
 
-    const onClickUpdate = (e) => {
-    }
     return (
         <div className="infomationTab">
             <div className="mainPanel">
@@ -221,7 +215,12 @@ function InfomationTab(props) {
                                 <label htmlFor="">Phone number</label>
                             </Grid>
                             <Grid item>
-                                <MyTextInput size="medium" placeholder="Phone number" value={userInfomation.phoneNumber} onChange={onChangeInput} />
+                                <MyTextInput 
+                                size="medium"
+                                name="phoneNumber"
+                                placeholder="Phone number" 
+                                value={userInfomation.phoneNumber} 
+                                onChange={onChangeInput} />
                             </Grid>
                         </Grid>
                         <Grid container item mb={2}>
@@ -229,7 +228,12 @@ function InfomationTab(props) {
                                 <label htmlFor="">Date of Birth</label>
                             </Grid>
                             <Grid item>
-                                <MyTextInput size="medium" placeholder="Date of Birth" value={userInfomation.birthDay} onChange={onChangeInput} />
+                                <MyTextInput 
+                                name="birthDay"
+                                size="medium" 
+                                placeholder="Date of Birth" 
+                                value={userInfomation.birthDay} 
+                                onChange={onChangeInput} />
                             </Grid>
                         </Grid>
                         <Grid container item mb={2}>
@@ -237,7 +241,9 @@ function InfomationTab(props) {
                                 <label htmlFor="">Email</label>
                             </Grid>
                             <Grid item>
-                                <MyTextInput size="medium" placeholder="Email" value={userInfomation.email} onChange={onChangeInput} />
+                                <MyTextInput
+                                type="email"
+                                name="email" size="medium" placeholder="Email" value={userInfomation.email} onChange={onChangeInput} />
                             </Grid>
                         </Grid>
                         <Grid container item mb={2}>
@@ -245,7 +251,7 @@ function InfomationTab(props) {
                                 <label htmlFor="">ID/Passport No</label>
                             </Grid>
                             <Grid item>
-                                <MyTextInput size="medium" placeholder="Number" value={userInfomation.idCode} onChange={onChangeInput} />
+                                <MyTextInput name="idCode" size="medium" placeholder="Number" value={userInfomation.idCode} onChange={onChangeInput} />
                             </Grid>
                         </Grid>
                         <Grid container item mb={2}>
@@ -253,7 +259,7 @@ function InfomationTab(props) {
                                 <label htmlFor="">ID/Passport Date</label>
                             </Grid>
                             <Grid item>
-                                <MyTextInput size="medium" placeholder="Number" value={userInfomation.idDate} onChange={onChangeInput} />
+                                <MyTextInput name="idDate" size="medium" placeholder="Number" value={userInfomation.idDate} onChange={onChangeInput} />
                             </Grid>
                         </Grid>
                     </Grid>

@@ -1,9 +1,13 @@
 export const ACTION_TYPES = {
     GET_USER_DATA: "GET_USER_DATA",
+
     GET_USER_INFOMATION: "GET_USER_INFOMATION",
     UPDATE_USER_INFOMATION: "UPDATE_USER_INFOMATION",
+
     GET_USER_SKILL: "GET_USER_SKILL",
     GET_USER_CERTIFICATION: "GET_USER_CERTIFICATION",
+
+    GET_SKILL_SELECT_FIELD: "GET_SKILL_SELECT_FIELD",
 };
 
 const userData = {
@@ -42,7 +46,7 @@ const userData = {
                 skillType: 'Framework',
                 skillName: 'VueJs',
                 skillNote: '',
-                experiences: '3 month',
+                experiences: '4 month',
                 noteExperiences: '',
                 level: '3'
             },
@@ -69,10 +73,16 @@ const userData = {
     ]
 };
 
+const skillSelectField = {
+    programingLanguages : ['C', 'C++', 'Java', 'Js', 'Python', 'PHP', 'Ruby'],
+    framework : ['Angular', 'ReactJs', 'React Native', 'VueJs', 'Rail'],
+    level : ['level 1', 'level 2', 'level 3', 'level 4', 'level 5']
+}
 
 
-let initState = {
-    userData: userData
+const initState = {
+    userData: userData,
+    skillSelectField : skillSelectField
 };
 
 export default function profileReducer(state = initState, action) {
@@ -88,6 +98,9 @@ export default function profileReducer(state = initState, action) {
         }
         case ACTION_TYPES.GET_USER_CERTIFICATION: {
             return { ...state, userCertification: userData.certification };
+        }
+        case ACTION_TYPES.GET_SKILL_SELECT_FIELD: {
+            return { ...state, skillSelectField: skillSelectField };
         }
 
         default: {

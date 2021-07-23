@@ -40,6 +40,7 @@ const CompanyManagement = function (props) {
     route.push("/company/detail/" + code);
   };
   const { tableData } = companyReducer;
+  console.log(tableData);
   const [formFilter, setFormFilter] = useState({});
   const handleChangeRowPerPage = (e) => {
     let value = e.target.value;

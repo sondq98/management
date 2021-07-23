@@ -3,7 +3,6 @@ import { useHistory } from "react-router-dom";
 import { connect, useSelector } from "react-redux";
 import Button from '@material-ui/core/Button';
 
-import { getUserData, getUserInfomation } from "../../store/profile/action";
 import MainHeader from '../../components/MainHeader';
 
 import "./style.css"
